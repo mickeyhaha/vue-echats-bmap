@@ -21,37 +21,37 @@
   export default{
     data(){
       return{
-          products: [
+          products: [  
         {
-          name: '实时交通',
-          path: 'tranmap',
-          active: false
-         
-        },   
-         {
-          name: '能源热点',
+          name: '无线测温',
           path: 'hostmap',
-          active: false
+          active: true
         
         },
         {
-          name: '空气质量',
+          name: 'aqi',
           path: 'aqi',
           active: false
         
         },
         {
-          name: '园区能耗',
+          name: '能源',
           path: 'energy',
           active: false
          
         },
          {
-          name: '项目分部',
+          name: '项目',
           path: 'map',
           active: false
          
-        }
+        },
+        {
+          name: '',
+          path: 'tranmap',
+          active: false
+         
+        }, 
 
         ],
         style:{
@@ -61,8 +61,8 @@
           
         },
         startPoint:{
-            x: 121.409992,
-            y: 31.178243
+            x: 121.404895,
+            y: 31.177335
         },
         zoom:16,
         styleJson:{
@@ -200,12 +200,15 @@
       }
     },
   mounted(){
-   // 百度地图API功能
+  // 百度地图API功能
 	var map = new BMap.Map("map");    // 创建Map实例
+  map.centerAndZoom(new BMap.Point(this.startPoint.x,this.startPoint.y), this.zoom);  // 初始化地图,设置中心点坐标和地图级别  
 	map.centerAndZoom(new BMap.Point(this.startPoint.x,this.startPoint.y), this.zoom);  // 初始化地图,设置中心点坐标和地图级别
-	map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
+  map.centerAndZoom(new BMap.Point(this.startPoint.x,this.startPoint.y), this.zoom);  // 初始化地图,设置中心点坐标和地图级别  
+  map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
 	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-    map.setMapStyle(this.styleJson)  //地图样式
+  map.setMapStyle(this.styleJson)  //地图样式
+
     }
   }
 </script>

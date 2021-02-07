@@ -7,7 +7,7 @@ const router=new Router({
   routes:[
     {
       path:'/',
-      redirect:'/energy'
+      redirect:'/hostmap'
     },
     {
       path:'/energy',
